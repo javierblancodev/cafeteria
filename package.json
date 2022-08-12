@@ -9,8 +9,14 @@
   "author": "Javier Blanco",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.8",
     "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
     "sass": "^1.54.3"
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%"
+  ]
 }
