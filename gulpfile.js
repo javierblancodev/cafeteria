@@ -1,4 +1,4 @@
-const { src, dest, watch } = require('gulp');
+const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -20,8 +20,11 @@ function css( done ) {
 
 function dev() {
     // look for changes on the scss file and call the css function if any
-    watch('src/scss/app.scss', css);
+    watch('src/scss/**/*.scss', css);
 }
 
-exports.css = css;
+exports.css = css; // se llama desde la terminal con el comando gulp + nombre de la tarea exportada, en este caso gulp css
 exports.dev = dev;
+// exports.default = css; // la palabra clave default significa que esta tarea sera ejecutada por defecto desde la terminalsi no se pasa argumento
+exports.tareasEnSerie = series(css, dev); // podemos importar la funcion series desde gulp para ejecutar multiples tareas una tras otra
+exports.default = parallel(css, dev); // podemos importar la funcion parallel desde gulp para ejecutar multiples tareas a la vez
