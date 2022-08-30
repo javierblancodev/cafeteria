@@ -1,0 +1,6 @@
+// @use, o @import en previas versiones, incluyen pero tambien utilizan/compilan el contenido
+// un archivo independiente llamado index es util para poder importar todas las hojas de estilo scss de una carpeta y luego pasarla desde ahi al archivo scss principal
+// @forward sirve para incluir el contenido, pero solo eso
+// sass busca automaticamente por el archivo con nombre index dentro de una carpeta
+@forward 'normalize'; 
+@forward 'variables'; 
